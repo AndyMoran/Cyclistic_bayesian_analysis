@@ -1,76 +1,75 @@
-This project applies Bayesian modelling to understand Cyclistic rider behaviour and evaluate pricing strategy under uncertainty. Using PyMC and ArviZ, the analysis models trip duration, value‑per‑trip, and revenue outcomes with full posterior distributions rather than point estimates. A Monte Carlo pricing simulation explores how different elasticity assumptions affect future revenue, leading to a risk‑adjusted recommendation for a $0.16 per‑minute pilot price. The result is a transparent, uncertainty‑aware framework for data‑driven pricing decisions.
+# Cyclistic Bayesian Pricing & Behaviour Simulation
+
+This project uses Bayesian modelling to understand how Cyclistic riders behave and how pricing changes might affect future revenue. Instead of relying on averages or point estimates, the analysis models full probability distributions for trip duration, value‑per‑trip, and revenue. A Monte Carlo pricing simulation tests different elasticity assumptions and leads to a risk‑aware recommendation for a $0.16 per‑minute pilot price.
+
+The aim is simple: build a clear, honest, uncertainty‑aware framework for pricing decisions.
 
 ## Project Highlights
 
-**Bayesian Inference for Rider Behaviour**  
-Trip duration and revenue are modelled using Log‑Normal likelihoods to handle right‑skewed behaviour typical of mobility data.
+**Bayesian Modelling of Rider Behaviour**
 
-**Value‑Per‑Trip Economics**  
-Resolves the accounting challenge of comparing Casual vs Member revenue by simulating amortised membership fees across realistic usage patterns.
+Trip duration and revenue follow right‑skewed patterns, so the model uses Log‑Normal likelihoods to capture long‑tail behaviour common in mobility data.
 
-**Monte Carlo Pricing Simulation**  
-Forecasts future revenue under multiple price‑elasticity assumptions (Low / Medium / High), enabling scenario‑based decision‑making.
+**Value‑Per‑Trip Economics**
 
-**Actionable Pricing Recommendation**  
-A risk‑adjusted pilot price of $0.16 per minute emerges as the most robust strategy across posterior simulations.
+Casual and Member riders generate revenue in different ways. The model simulates amortised membership fees across realistic usage patterns to make the comparison fair.
+
+**Monte Carlo Pricing Simulation**
+
+Future revenue is simulated under three elasticity assumptions — Low, Medium, and High — to show how sensitive pricing outcomes are to rider behaviour.
+
+**Actionable Recommendation**
+
+Across thousands of simulations, $0.16 per minute emerges as the most robust pilot price when balancing revenue growth and behavioural risk.
 
 ## Methodology
 
-- Posterior Predictive Checks (PPCs) to validate model fit and detect mis‑specification.
+Posterior Predictive Checks (PPCs) to test model fit and catch mis‑specification
 
-- Hierarchical priors to accommodate missing user‑level attributes and reduce overfitting.
+Hierarchical priors to handle missing user‑level attributes and reduce overfitting
 
-- Monte Carlo simulation of price elasticity using industry benchmarks and uncertainty‑aware revenue projections.
+Monte Carlo simulation using industry elasticity benchmarks and uncertainty‑aware revenue projections
 
-- Adversarial model critique to ensure assumptions are transparent, defensible, and aligned with domain constraints.
+Adversarial model critique to stress‑test assumptions and keep the model honest
 
 ## Why This Project Matters
 
-Cyclistic’s business model depends on balancing accessibility with sustainable revenue. Traditional analytics often rely on averages that obscure uncertainty, skewness, and behavioural variability — especially in mobility data where trip durations are long‑tailed and user types behave differently.
+Cyclistic needs prices that are fair, sustainable, and grounded in real behaviour. Mobility data is messy: trip durations are long‑tailed, riders behave differently, and averages hide important uncertainty.
 
-This project matters because the project:
+This project matters because it:
 
-- Replaces point estimates with full probability distributions, giving a more honest view of uncertainty.
+- replaces point estimates with full probability distributions
 
-- Models revenue in a way that respects accounting reality, especially the amortisation of membership fees.
+- models revenue in a way that respects how membership fees actually work
 
-- Simulates pricing outcomes under behavioural uncertainty, rather than assuming fixed elasticity.
+- simulates pricing outcomes under behavioural uncertainty
 
-- Supports decision‑makers with risk‑adjusted insights, not just single-number forecasts.
+- supports decisions with risk‑adjusted insights, not single‑number forecasts
 
-- Demonstrates modern Bayesian workflow skills, including PPCs, hierarchical priors, and adversarial critique.
-
-For recruiters and stakeholders, this project showcases analytical maturity, statistical honesty, and the ability to translate modelling into actionable business recommendations.
+- demonstrates a modern Bayesian workflow with PPCs, hierarchical priors, and adversarial critique
 
 ## Key Takeaways
 
-- Bayesian modelling provides richer insight than classical averages, especially with skewed behavioural data.
+- Bayesian modelling gives a richer picture than classical averages, especially with skewed data
 
-- Revenue comparisons between rider types require careful accounting treatment — not raw trip totals.
+ Revenue comparisons between rider types need proper accounting, not raw totals
 
-- Pricing decisions benefit from uncertainty‑aware simulation rather than single‑point forecasts.
+ Pricing decisions benefit from uncertainty‑aware simulation
 
-The recommended pricing pilot balances revenue growth with behavioural risk.
+ The recommended pilot price balances revenue growth with behavioural risk
 
-## Future Work
+Future Work
 
-- Hierarchical modelling by season or weather
-  Capture seasonal variation in rider behaviour.
+- Seasonal or weather‑based hierarchical models to capture seasonal shifts in behaviour
 
-- Mixture models for trip duration  
-  Identify potential behavioural subgroups within Casual riders.
+- Mixture models to identify behavioural subgroups within Casual riders
 
-- Elasticity estimation from historical experiments  
-  Replace industry benchmarks with empirical elasticity from A/B tests.
+- Elasticity estimation from historical experiments to replace industry benchmarks
 
-- Integration with spatial data  
-  Model station‑level differences and neighbourhood‑specific sensitivity.
+- Spatial modelling to capture station‑level differences
 
-- Full Bayesian decision analysis  
-  Move from scenario simulation to formal expected‑utility optimisation.
+- Full Bayesian decision analysis for expected‑utility optimisation
 
-- Bayesian bandit algorithms for dynamic pricing  
-  Use multi‑armed bandit methods (e.g., Thompson Sampling) to dynamically optimise pricing in live experiments by       balancing exploration and exploitation.
+- Bayesian bandits for dynamic pricing using Thompson Sampling
 
-- Interactive dashboard  
-  Build a Streamlit or Shiny app for exploring posterior distributions and pricing scenarios.
+- Interactive dashboard (Streamlit or Shiny) for exploring posterior distributions and pricing scenarios
